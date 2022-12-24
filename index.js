@@ -15,6 +15,7 @@
 var theme = "empty";
 var themeElement = document.getElementById("theme-sheet");
 var themeButton = document.getElementById("theme-toggle-btn");
+var themeColor = document.getElementById("theme-color");
 
 var lightSheet = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 var darkSheet = "https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css";
@@ -37,9 +38,11 @@ function setTheme() {
     if (localStorage.getItem("theme") == "light"){
         themeElement.href = lightSheet;
         themeButton.innerHTML = "🌙 Dark";
+        themeColor.content = "#FFFFFF";
     } else {
         themeElement.href = darkSheet;
         themeButton.innerHTML = "☀ Light";
+        themeColor.content = "#222222";
     }
 }
 
