@@ -3,35 +3,88 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<meta name="color-scheme" content="light dark">-->
+    <meta name="color-scheme" content="light dark">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css" rel="stylesheet" id="dark-sheet"/>-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" id="theme-sheet">
+
+    <!--<link href="index.css" rel="stylesheet">-->
+
+    <!--Why is this here? So that the website doesn't flashbang the user when it loads. Ensures correct stylesheet is applied before rendering.-->
+    <script>
+      var themeElement = document.getElementById("theme-sheet");
+
+      if (localStorage.getItem("theme") === null){
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
+          themeElement.href = "https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css";
+        } 
+        else {
+          themeElement.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+        }
+      }
+      else {
+        if (localStorage.getItem("theme") == "light"){
+         themeElement.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+       }
+        else {
+          themeElement.href = "https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css";
+       }
+      }
+    </script>
+
+    <!--Favicon and Icons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
     <title>Salty's Homepage</title>
-    <link href="index.css" rel="stylesheet">
   </head>
   <body>
     <header>
-      <nav class="navbar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="title" href="#home"><h1>Salty's Homepage</h1></a>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <a class="navbar-brand" href="#"><h1>Salty's Homepage</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#NavbarNavAltMarkup" aria-controls="NavbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="NavbarNavAltMarkup">
+            <a class="nav-link" href="#who">Who</a>
+            <a class="nav-link" href="#projects">Projects</a>
+            <a class="nav-link" href="#contact">Contact</a>
+            <div class="ms-auto">
+              <button class="btn btn-dark me-2" type="button" id="theme-toggle-btn" onclick="toggleTheme()"></button>
+            </div>
+          </div>
         </div>
       </nav>
     </header>
-    <div class="home" id="home">
-      <h2>Hi. Who am I</h2>
+
+    <div class="who" id="who">
+      <h2>Who am I</h2>
+      <p>Hi. My name's Salty. Welcome to my home page. You can find some projects I've done here. Scroll down for more. And further if you want to get in touch. Or if you want to complain about a broken site.</p>
     </div>
 
     <div class="projects" id="projects">
       <h2>Stuff I've made</h2>
+      <p>In 2020, I was given an assignment to create a website about a movie/TV show of our choosing. By using HTML, CSS, and JS, I created a website about the Pokemon anime. The project is currently available at <a href="https://wutsalty.github.io/ist-site-project/html/0home.html">this site</a>.</p>
+      <p>In 2021, another assignment was to create a VB .NET application for a word or card game. I decided to make "Boggle", which included a card match and word memory game. This project is not currently publicly available.</p>
+      <p>In 2022, a major assignment was to create a project of any specification. Using Unity and C#, I created a combo golf-sim/on-rails/top-down shooter called "Gold but its not original". This project is not currently publicly available.</p>
     </div>
 
     <div class="contact" id="contact">
       <h2>Where to find me</h2>
+      <p>I occasionally make content on <a href="https://youtube.com/@wutSalty">YouTube</a>. Rarely I'll stream on <a href="https://twitch.tv/wut_salty">Twitch</a>. And I'm ever so slightly more active on <a href="https://twitter.com/wut_Salty">Twitter</a>. If this page breaks, try ring me up with one of those.</p>
     </div>
-    <!--Custom JS-->
-    <!--<script src="index.js"></script>-->
+
+    <!--JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="index.js"></script>
+
   </body>
 </html>
