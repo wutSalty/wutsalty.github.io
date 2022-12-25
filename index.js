@@ -12,13 +12,11 @@
 
 //window.addEventListener("hashchange", loadContent)
 
+//Theme manager
 var theme = "empty";
-var themeElement = document.getElementById("theme-sheet");
+var themeElement = document.getElementById("the-body");
 var themeButton = document.getElementById("theme-toggle-btn");
 var themeColor = document.getElementById("safari-theme-color");
-
-var lightSheet = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
-var darkSheet = "https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-night.min.css";
 
 if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches){
     var theme = "dark";
@@ -36,15 +34,14 @@ else {
 
 function setTheme() {
     if (localStorage.getItem("theme") == "light"){
-        themeElement.href = lightSheet;
+        themeElement.setAttribute("data-bs-theme", "light");
         themeButton.innerHTML = "🌙 Dark";
         themeColor.content = "#FFFFFF";
     } else {
-        themeElement.href = darkSheet;
+        themeElement.setAttribute("data-bs-theme", "dark");
         themeButton.innerHTML = "☀ Light";
         themeColor.content = "#222222";
     }
-    console.log(document.getElementById("safari-theme-color").content);
 }
 
 setTheme();
@@ -59,3 +56,16 @@ function toggleTheme() {
     localStorage.setItem("theme", theme);
     setTheme();
 }
+
+//Time ticker
+const timeText = document.getElementById("current-time");
+
+function convertTZ(date, tzString) {
+    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));
+}
+
+function replaceTime() {
+    timeText.innerHTML = convertTZ(new Date(), "Australia/Sydney");
+}
+
+setInterval(replaceTime, 1000);
