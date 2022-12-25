@@ -60,12 +60,12 @@ function toggleTheme() {
 //Time ticker
 const timeText = document.getElementById("current-time");
 
-function convertTZ(date, tzString) {
-    return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", {timeZone: tzString}));
-}
-
 function replaceTime() {
-    timeText.innerHTML = convertTZ(new Date(), "Australia/Sydney");
+    options = {
+        weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "numeric", second: "numeric", timeZone: "Australia/Sydney", timeZoneName: 'short'
+    }
+    const finalDate = new Intl.DateTimeFormat('default', options).format(new Date());
+    timeText.innerHTML = finalDate;
 }
 
 setInterval(replaceTime, 1000);
