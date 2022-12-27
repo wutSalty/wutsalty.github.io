@@ -40,7 +40,7 @@ function setTheme() {
     } else {
         themeElement.setAttribute("data-bs-theme", "dark");
         themeButton.innerHTML = "☀ Light";
-        themeColor.content = "#222222";
+        themeColor.content = "#212529";
     }
 }
 
@@ -69,3 +69,7 @@ function replaceTime() {
 }
 
 setInterval(replaceTime, 1000);
+
+//Tooltip intialise
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
