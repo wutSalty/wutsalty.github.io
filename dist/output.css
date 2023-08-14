@@ -627,6 +627,10 @@ video {
   width: 100vw;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .flex-initial {
   flex: 0 1 auto;
 }
@@ -689,6 +693,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .scroll-smooth {
