@@ -6,25 +6,40 @@
   <!-- <meta name="theme-color" content="#172554" /> -->
   <meta name="theme-color" content="#172554" id="safari-theme-color">
   <link href="../dist/output.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 
-<body class="max-w-full overflow-x-hidden bg-pine-base text-pine-text">
+<body class="max-w-full overflow-x-hidden bg-dawn-base text-dawn-text dark:bg-moon-base dark:text-moon-text">
   <header>
-    <nav class="fixed w-screen flex justify-center inset-x-auto top-0">
-      <div class="bg-pine-surface w-full h-14 flex items-center justify-between rounded-b-2xl shadow">
-        <a class="text-3xl text-pine-text inline-block pl-8" href="#">
+    <nav class="bg-dawn-surface dark:bg-moon-surface rounded-b-2xl shadow fixed w-screen flex justify-center top-0 left-0">
+      <div class="w-full h-14 flex flex-wrap items-center justify-between mx-auto p-4 px-8">
+        <a class="text-3xl flex items-center w-auto -mt-2" href="#">
           Salty's Homepage
         </a>
-        <div class="hidden md:block pr-8">
-          <a href="#who" class="text-lg text-pine-text inline-block mx-4 pt-1">Who am I</a>
-          <a href="#projects" class="text-lg text-pine-text inline-block mx-4 pt-1">Projects</a>
-          <a href="#contacts" class="text-lg text-pine-text inline-block mx-4 pt-1">Contacts</a>
-          <button class="mx-4" onclick="alert('Work in progress')"><span class="fa-regular fa-sun"></span></button>
-          <a href="https://wutsalty.github.io" class="ml-4"><button class="bg-pine-text text-black rounded p-1"><span class="fa-brands fa-github"></span> Old Site</button></a>
+        <div class="flex">
+          <button data-collapse-toggle="navbar-sticky" aria-controls="navbar-sticky" aria-expanded="false" type="button" class="md:hidden">
+            <span class="text-2xl fa-solid fa-bars"></span>
+          </button>
         </div>
-        <div class="inline-block md:hidden pr-8">
-          <button class="mx-4" onclick="alert('Work in progress')"><span class="text-2xl fa-solid fa-bars"></span></button>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto" id="navbar-sticky">
+          <li class="flex flex-col mt-4 md:mt-0 md:flex-row bg-dawn-surface dark:bg-moon-surface rounded md:rounded-none drop-shadow-md md:filter-none">
+            <ul>
+              <a href="#who" class="text-lg block mx-3 my-2 md:my-0">Who am I</a>
+            </ul>
+            <ul>
+              <a href="#projects" class="text-lg block mx-3 my-2 md:my-0">Projects</a>
+            </ul>
+            <ul>
+              <a href="#changelog" class="text-lg block mx-3 my-2 md:my-0">Changelog</a>
+            </ul>
+            <ul>
+              <a href="https://wutsalty.github.io" class="text-lg block mx-3 my-2 md:my-0">Old Site</a>
+            </ul>
+            <ul>
+              <a href="javascript:void(0);" class="text-lg block mx-3 my-2 md:my-0" onclick="toggleTheme()"><span class="fa-regular fa-sun"></span></a>
+            </ul>
+          </li>
         </div>
       </div>
     </nav>
@@ -39,16 +54,16 @@
         Nice to meet you
       </p>
       <div class="flex flex-row flex-wrap justify-around justify-items-center m-2">
-        <a href="https://youtube.com/@wutSalty"><button class="bg-red-600 rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-youtube text-xl"></span></button></a>
-        <a href="https://twitch.tv/wut_salty"><button class="bg-purple-700 rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-twitch text-xl"></span></button></a>
-        <a href="https://twitter.com/wut_Salty"><button class="bg-blue-500 rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-twitter text-xl"></span></button></a>
-        <a href="https://github.com/wutSalty"><button class="bg-gray-700 rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-github text-xl"></span></button></a>
+        <a href="https://youtube.com/@wutSalty"><button class="bg-red-600 text-moon-text rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-youtube text-xl"></span></button></a>
+        <a href="https://twitch.tv/wut_salty"><button class="bg-purple-700 text-moon-text rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-twitch text-xl"></span></button></a>
+        <a href="https://twitter.com/wut_Salty"><button class="bg-blue-500 text-moon-text rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-twitter text-xl"></span></button></a>
+        <a href="https://github.com/wutSalty"><button class="bg-gray-700 text-moon-text rounded-full w-12 h-12 mx-2 my-1"><span class="fa-brands fa-github text-xl"></span></button></a>
       </div>
       <p class="text-base m-1">
         Local Salty Time:<br><span id="current-time">Loading time zone data...</span>
       </p>
     </div>
-    <div class="flex-initial basis-8/12 rounded bg-pine-overlay p-4">
+    <div class="flex-initial basis-8/12 rounded bg-dawn-overlay dark:bg-moon-overlay p-4">
       <p class="text-lg">
         Feel free to call me that (unless mentioned 
         otherwise). When I'm not crunching the uni life, then you 
@@ -81,9 +96,9 @@
   </div>
 
   <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between w-10/12 mx-auto text-center">
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">IST Website</p>
-      <p class="text-xl text-pine-subtle">2020</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2020</p>
       <img src="../static/img/pokemon.jpg" class="rounded">
       <p class="text-base">
         A website about a movie/TV show of our choosing. 
@@ -91,18 +106,18 @@
         anime. Modern browser recommended.
       </p>
     </div>
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">Boggle Game</p>
-      <p class="text-xl text-pine-subtle">2021</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2021</p>
       <img src="../static/img/boggle.jpg" class="rounded">
       <p class="text-base">
         A .NET Visual Basic Application. I created a word/card game which 
         included Card Match and Word Memory. The .NET 4.8 Framework is required.
       </p>
     </div>
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">Golf but its not original</p>
-      <p class="text-xl text-pine-subtle">2022</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2022</p>
       <img src="../static/img/golf.jpg" class="rounded">
       <p class="text-base">
         A project of any specification. Using Unity and C#, I created a 2D 
@@ -110,9 +125,9 @@
         Unity 2020.3.12f1 required to open project. Windows PC required to play.
       </p>
     </div>
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">Unity Networking</p>
-      <p class="text-xl text-pine-subtle">2022</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2022</p>
       <img src="../static/img/networking.jpg" class="rounded">
       <p class="text-base">
         A minor project in the middle of Golf. I was able to learn more about 
@@ -120,9 +135,9 @@
         finished. Unity 2020.3.12f1 required to open project.
       </p>
     </div>
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">Salty's Homepage</p>
-      <p class="text-xl text-pine-subtle">2022</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2022</p>
       <img src="../static/img/homepage.jpg" class="rounded">
       <p class="text-base">
         The original website. Made with HTML, Bootstrap CSS v5.3.0-alpha1, 
@@ -130,9 +145,9 @@
         browser.
       </p>
     </div>
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">Various university works</p>
-      <p class="text-xl text-pine-subtle">2023</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2023</p>
       <img src="../static/img/homepage.jpg" class="rounded">
       <p class="text-base">
         Various projects and assignments assigned while studying Computer
@@ -140,9 +155,9 @@
         would be committing academic misconduct. Maybe in 10 years.
       </p>
     </div>
-    <div class="bg-pine-overlay rounded p-4">
+    <div class="bg-dawn-overlay dark:bg-moon-overlay rounded p-4">
       <p class="text-2xl">Salty's (new) Homepage</p>
-      <p class="text-xl text-pine-subtle">2023</p>
+      <p class="text-xl text-dawn-subtle dark:text-moon-subtle">2023</p>
       <img src="../static/img/homepage.jpg" class="rounded">
       <p class="text-base">
         The new website. Made with HTML, Tailwind CSS, and JS. The successor 
@@ -151,42 +166,35 @@
     </div>
   </div>
 
-  <div class="pt-6 px-6 flex flex-col md:flex-row justify-around w-11/12 mx-auto text-left scroll-mt-14" id="contacts">
+  <div class="pt-6 pb-3 px-6 flex flex-col md:flex-row justify-around w-11/12 mx-auto text-left scroll-mt-14" id="changelog">
     <div class="flex-initial basis-4/12">
       <p class="text-2xl">
-        How to find me
+        Changelog
       </p>
     </div>
     <div class="flex-initial basis-8/12">
-      <!-- Blank here for labelling purposes -->
+      <div class="bg-dawn-overlay dark:bg-moon-overlay rounded w-full">
+        <div class="flex flex-row justify-between px-4 py-2 border-moon-iris dark:border-dawn-iris">
+          <p class="basis-3/12 pr-2">19/08/2023</p>
+          <p class="basis-8/12">Implemented light theme and mobile nav bar</p>
+        </div>
+        <div class="flex flex-row justify-between px-4 py-2 border-y-2 border-moon-iris dark:border-dawn-iris">
+          <p class="basis-3/12 pr-2">17/08/2023</p>
+          <p class="basis-8/12">Updated default theme to look nicer</p>
+        </div>
+        <div class="flex flex-row justify-between px-4 py-2 border-moon-iris dark:border-dawn-iris">
+          <p class="basis-3/12 pr-2">14/08/2023</p>
+          <p class="basis-8/12">Released public beta of new website to Github Pages</p>
+        </div>  
+      </div>
     </div>
   </div>
-  <div class="pb-4 px-6 flex flex-col md:flex-row justify-around w-11/12 mx-auto text-center">
-    <div class="flex-initial basis-3/12 my-4">
-      <a href="https://youtube.com/@wutSalty"><button class="bg-red-600 rounded p-1 my-1"><span class="fa-brands fa-youtube"></span> YouTube</button></a>
-      <p class="text-base">
-        There's a chance I'll make content. One day. You can find stream vods 
-        and tournament commentary here.
-      </p>
-    </div>
-    <div class="flex-initial basis-3/12 my-4">
-      <a href="https://twitch.tv/wut_salty"><button class="bg-purple-700 rounded p-1 my-1"><span class="fa-brands fa-twitch"></span> Twitch</button></a>
-      <p class="text-base">
-        Streaming takes effort, too much for me to bother. Whenever I feel 
-        like playing something.
-      </p>
-    </div>
-    <div class="flex-initial basis-3/12 my-4">
-      <a href="https://twitter.com/wut_Salty"><button class="bg-blue-500 rounded p-1 my-1"><span class="fa-brands fa-twitter"></span> Twitter</button></a>
-      <p class="text-base">
-        ...or is it X? Anyways catch some smoking gameplay clips here whenever 
-        I decide to upload them.
-      </p>
-    </div>
+  <div class="pb-4 px-6 flex flex-col md:flex-row justify-around w-8/12 mx-auto text-left">
+    
   </div>
 </body>
 
-<footer class="bg-pine-surface w-screen flex flex-row justify-between items-center">
+<footer class="bg-dawn-surface dark:bg-moon-surface w-screen flex flex-row justify-between items-center">
     <div class="flex-initial basis-80 text-left p-4">
       <p class="text-base">
         Content made with copious amounts of HTML, Tailwind CSS, and JS.
@@ -198,16 +206,6 @@
       </p>
     </div>
 </footer>
-<script>
-//Time ticker
-const timeText = document.getElementById("current-time");
-const replaceTime = (element) => {
-    options = {
-        weekday: "short", day: "numeric", month: "short", hour: "numeric", minute: "numeric", second: "numeric", timeZone: "Australia/Sydney", timeZoneName: 'short'
-    }
-    const finalDate = new Intl.DateTimeFormat('default', options).format(new Date());
-    element.innerHTML = finalDate;
-}
-setInterval(replaceTime, 1000, timeText);
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
+<script src="index.js"></script>
 </html>
